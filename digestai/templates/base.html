@@ -13,17 +13,23 @@
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="{{ url_for('books.book_list') }}" class="w3-bar-item w3-button">Books</a>
+      <a href="{{ url_for('images.image_list') }}" class="w3-bar-item w3-button">Images</a>
       <a href="#contact" class="w3-bar-item w3-button">Contact</a>
     </div>
   </div>
 </div>
 
 <!-- Content goes here -->
+<div class="w3-container" style="min-height: 80vh; margin-top: 5em;">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
 {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
 {% endfor %}
 {% block content %}{% endblock %}
-
+</div>
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">
