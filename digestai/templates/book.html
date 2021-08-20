@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="w3-content">
+  <h2 class="w3-center">{{ bookname }}</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="w3-container">
+    <div class="w3-row">
+        <div class="w3-col m2 l3 s12">
+            {% for key, value in book.items() %}
+            <a href="{{ url_for('books.book_view', id=book_id, q=[key]) }}"><div class="w3-border w3-padding">{{ book[key]['title'] }}</div></a>
+            {% endfor %}
+        </div>
+        <div class="w3-col m10 l9 s12 w3-padding">
+            {% if content %}
+            <span>{{ content }}</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

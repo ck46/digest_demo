@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="w3-content">
+  <h2 class="w3-center">{{ image_name }}</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="w3-container">
+    <div class="w3-row">
+        <div class="w3-col m4 s12 w3-padding">
+            <h3 class="w3-center">Image</h3>
+            <img src="/static/image_uploads/{{ image_name }}" alt="{{ image_name }}" width="100%">
+        </div>
+        <div class="w3-col m4 s12 w3-padding">
+            <h3 class="w3-center">Extracted Text</h3>
+            <span>{{ image_text }}</span>
+        </div>
+        <div class="w3-col m4 s12 w3-padding">
+            <h3 class="w3-center">Summary</h3>
+            {% if summarized %}
+            <span>{{ summary }}</span>
+            {% else %}
+            <form class="w3-center">
+                <input name='q' value='summary' hidden>
+                <button class="w3-btn w3-light-blue">Summarize</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

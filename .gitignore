@@ -1,2 +1,3 @@
 venv/*
 digestai/__pycache__/*
+digestai/*.*~
